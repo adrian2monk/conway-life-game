@@ -1,0 +1,22 @@
+<h1>Conway's Game of Life</h1>
+
+<% if @board.blank? %>
+  <%= form_with url: games_path do |form| %>
+    <input type="number" name="width" value="100" readonly />
+    <input type="number" name="height" value="100" readonly />
+    <input type="number" name="live_cells_number" value="95" />
+    <button>Start</button>
+  <% end %>
+<% else %>
+  <section class="game">
+    <div class="board" style="grid-template-columns: repeat(<%= @width %>, 1fr); grid-template-rows: repeat(<%= @height %>, 1fr);">
+      <% @board.each do |cell| %>
+        <div class="cell <%= 'alive' if cell[:alive] %>"></div>
+      <% end %>
+    </div>
+    <div class="toolbar">
+      <%= link_to "Next", root_path(live_cells: @live_cells.to_h) %>
+      <%= link_to "Cancel", root_path %>
+    </div>
+  </section>
+<% end %>

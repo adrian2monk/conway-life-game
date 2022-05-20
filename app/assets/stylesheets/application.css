@@ -13,3 +13,33 @@
  *= require_tree .
  *= require_self
  */
+
+ .game {
+	 display: flex;
+	 flex-direction: column-reverse;
+	 max-width: 90vw;
+	 font-size: .65vw;
+	 margin: auto;
+ }
+
+ .game .board {
+	 display: grid;
+ }
+
+ .board .cell {
+	 width: 1em;
+	 height: 1em;
+	 background-color: transparent;
+	 transition: background-color 1s ease;
+ }
+
+ .board .cell.alive {
+	 background-color: rebeccapurple;
+ }
+
+ .toolbar {
+	 display: flex;
+	 justify-content: space-between;
+	 margin: 1rem;
+	 font-size: 2em;
+ }
